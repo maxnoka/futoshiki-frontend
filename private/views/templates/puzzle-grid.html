@@ -1,0 +1,21 @@
+      <table id="puzzle-grid">
+          <tbody>
+            <?php
+            for ($rowIdx=0; $rowIdx < $this->board_size - 1; $rowIdx++) {
+              $row = $this->rows[$rowIdx];
+
+              $row->render($this->constraints["row"][$rowIdx]);
+
+              echo '<tr class="puzzle-row-constraints">';
+              for ($i=0; $i < $this->board_size - 1; $i++) { 
+                $this->constraints["col"][$rowIdx][$i]->render();
+                include TEMPLATE_PATH . '/' . 'constraint-row-blank.html';
+              }
+              $this->constraints["col"][$rowIdx][$this->board_size - 1]->render();
+            echo "</tr>";
+            }
+
+            $this->rows[$this->board_size - 1]->render($this->constraints["row"][$this->board_size - 1]);
+            ?>
+        </tbody>
+      </table>

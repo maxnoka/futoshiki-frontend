@@ -11,18 +11,47 @@ body {
   min-height: 100vh;
 }
 
+.text-button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#toggle-help-title {
+    margin: 0;
+}
+
+#toggle-help-title:hover {
+    text-decoration: underline;
+}
+
+#puzzle-help-text ul {
+    padding-inline-start: 20px;
+}
+
 #grid-container {
   display: grid;
   grid-template-areas:
-  "controls puzzle"
-  "status status";
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    "controls puzzle help"
+    ". status status";
+  grid-template-rows: [row1-start] auto [row1-emd row2-start] auto [row2-end];
+  grid-template-columns: 85px auto 300px;
+  justify-items: left;
 }
 
 #puzzle-status-bar {
     grid-area: status;
+    max-width: 500px;
+    margin-left: 30px;
+}
+
+#puzzle-help {
+    margin-top: 30px;
+    grid-area: help;
 }
 
 #puzzle-contianer {
@@ -131,7 +160,7 @@ input[type=number] {
 }
 
 .puzzle-controlls-button {
-    margin: 20px 10px;
+    margin: 10px 10px;
 }
 
 .puzzle-controlls-button:hover {

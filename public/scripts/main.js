@@ -1,3 +1,16 @@
+$(document).on('click', '#toggle-help-button', function(){
+  var button = document.getElementById("toggle-help-title");
+  var helpText = document.getElementById("puzzle-help-text");
+  if (helpText.style.display === "none") {
+    button.innerText = "? Futoshiki Rules";
+    helpText.style.display = "block";
+  }
+  else {
+    button.innerText = "?";
+    helpText.style.display = "none";
+  }
+});
+
 $(document).ready(function(){
   initConstraintButtons();
 
